@@ -5,6 +5,9 @@ export async function getClasesRestantes(clase, feriados) {
     if (clase > CURSO.TOTAL_CLASES) {
         return
     }
+    if (clase < 0){
+        return
+    }
     const clasesRestantes = CURSO.TOTAL_CLASES - clase
     let sumaClases = 0
     let guiaActual
