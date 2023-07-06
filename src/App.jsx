@@ -30,7 +30,11 @@ function App() {
       type: "number",
       stringValue: data.get('clase').toString()
     }
-    setContenido(await getClasesRestantes(input.stringValue, feriadosProximos))
+    const content = await getClasesRestantes(input.stringValue, feriadosProximos)
+    if(content){
+      setContenido(content)
+    }
+    
   }
 
   return (
