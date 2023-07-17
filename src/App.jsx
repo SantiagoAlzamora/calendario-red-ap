@@ -4,6 +4,7 @@ import LogoEgg from './components/LogoEgg'
 import { SELECT_ACTIONS } from './constants'
 import { getClasesRestantes } from './services/clasesService'
 import { getFeriadosOfTheYearByMonths } from './services/feriadosService'
+import ResultadoCalculadora from './components/ResultadoCalculadora'
 //https://nolaborables.com.ar/api/v2/feriados/2023
 
 
@@ -30,12 +31,12 @@ function App() {
       type: "number",
       stringValue: data.get('clase').toString()
     }
-    if(input.stringValue){
+    if (input.stringValue) {
       const content = await getClasesRestantes(input.stringValue, feriadosProximos)
       console.log(content);
       setContenido(content)
     }
-    
+
   }
 
   return (
@@ -54,16 +55,7 @@ function App() {
           </div>
         </form>
 
-        {contenido &&
-          <div className='resultado'>
-            <p> Estas cursando: {contenido.guiaActual}</p>
-            <p> {contenido.clasesRestantesGuiaActual > 1 || contenido.clasesRestantesGuiaActual === 0 ? `Te quedan ${contenido.clasesRestantesGuiaActual} dias de guia` : `Te queda ${contenido.clasesRestantesGuiaActual} dia de guia`}</p>
-            <p> Clases restantes hasta fin del modulo: {contenido.clasesRestantesModuloActual}</p>
-            <p> fecha fin de modulo: {contenido.fechaARendirModuloActual}</p>
-            <p> Clases restantes hasta test final: {contenido.clasesRestantes}</p>
-            <p> Fecha de test final: {contenido.fechaARendir}</p>
-          </div>
-        }
+        {contenido && <ResultadoCalculadora  contenido={contenido}/>}
 
       </main>
     </>

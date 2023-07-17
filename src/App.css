@@ -90,3 +90,34 @@ p{
   min-width: 50%;
   text-align: left;
 }
+
+.resultado-header{
+  border-bottom: 5px solid rgb(255, 217, 0);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.resultado-header p{
+  min-width: 0;
+}
+
+.resultado-info{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.resultado span{
+  color: #2978a3;
+  font-weight: bolder;
+  font-size: 1rem;
+}
+
+.resultado p{
+  font-size: 0.8rem;
+}
+
